@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Break</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body class="dark-mode">
+    <header>
+        <div class="top-header">
+           <a href="index.html"> <img src="Images/LogoMidtermProject.webp" alt="Cinema Break Logo"> </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <button id="themeToggle">🌙</button>
+            </nav>
+        </div>
+        <div class="welcome-section">
+            <h1>Welcome.</h1>
+            <p>Millions of movies, TV shows and people to discover. Explore now.</p>
+        </div>
+        <form class="searchForm">
+            <input type="text" id="inputMovie" placeholder="Search for a movie, tv show, person...">
+            <input type="submit" value="Search">
+        </form>
+    </header>
+
+    <main>
+        <h2>Trending Movies and TV Shows</h2>
+        <ul class="movieList">
+            <!-- Movie/TV Show cards will be dynamically added here -->
+        </ul>
+        <button id="loadMore">Load More</button> <!-- Botón "Load More" -->
+    </main>
+
+    <footer>
+        <p>© 2024 Cinema Break | Designed for Web 2 Midterm Project</p>
+    </footer>
+</body>
+</html>
+

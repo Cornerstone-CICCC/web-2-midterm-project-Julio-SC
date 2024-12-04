@@ -1,0 +1,255 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Light Mode (default styles for all) */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #ffffff; /* Light background */
+    color: #333; /* Dark text */
+}
+
+/* Header */
+header {
+    background: linear-gradient(185deg, #441506, #ff8a00); /* Light header gradient */
+    color: #fff;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.top-header img {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.top-header img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.top-header nav {
+    display: flex;
+    gap: 20px;
+}
+
+.top-header nav a {
+    text-decoration: none;
+    color: white; /* Link color */
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+    text-decoration: underline;
+}
+
+.top-header nav a:hover {
+    color: #ffecd3; /* Hover link color */
+}
+
+.top-header nav button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: white; /* Button color */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.top-header nav button:hover {
+    color: #ffecd3; /* Button hover color */
+}
+
+/* Welcome Section */
+.welcome-section {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* Search Form */
+.searchForm {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 800px;
+}
+
+.searchForm input[type="text"] {
+    padding: 15px;
+    width: 70%;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 1rem;
+}
+
+.searchForm input[type="submit"] {
+    padding: 15px 30px;
+    border-radius: 25px;
+    border: none;
+    background-color: #ff5722;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.searchForm input[type="submit"]:hover {
+    background-color: #ff7043;
+}
+
+/* Main Section */
+.movieList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movieList li {
+    background: #fff; /* Light card background */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movieList li:hover {
+    transform: scale(1.05);
+}
+
+.movieList img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movieList p {
+    color: #333; /* Text color in light mode */
+}
+
+/* Load More Button */
+#loadMore {
+    align-items: center;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#loadMore:hover {
+    background-color: #a7ff43;
+    box-shadow: 5px 5px 5px black;
+    transition: ease-in 0.3s;
+    color: black;
+}
+
+/* Footer */
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #ff5722;
+    color: #fff;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #141e30; /* Dark background */
+    color: #fff; /* Light text */
+}
+
+body.dark-mode header {
+    background: linear-gradient(200deg, hsl(206, 100%, 8%), #00f7ff56); /* Dark header gradient */
+}
+
+body.dark-mode .movieList li {
+    background: #1c2833; /* Dark card background */
+    color: #ddd; /* Light text in cards */
+}
+
+body.dark-mode .movieList li p {
+    color: #ddd; /* Light text in dark mode */
+}
+
+body.dark-mode footer {
+    background-color: #1c2833; /* Dark footer background */
+}
+
+/* About Section */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff8a00;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.about-image img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Light Mode for About Section */
+body.light-mode .about-content p {
+    color: #333;
+}
+
+body.light-mode .about-content h2 {
+    color: #ff5722;
+}
