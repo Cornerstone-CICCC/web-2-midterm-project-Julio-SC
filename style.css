@@ -6,28 +6,42 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Light Mode (default styles for all) */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #ffffff; /* Light background */
-    color: #333; /* Dark text */
+    background-color: #ffffff;
+    color: #333;
 }
 
-/* Header */
+body.dark-mode {
+    background-color: #141e30;
+    color: #fff;
+}
+
+/* Header Styling */
 header {
-    background: linear-gradient(185deg, #441506, #ff8a00); /* Light header gradient */
+    background: linear-gradient(185deg, #eb4812, #ff8a00);
     color: #fff;
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
+
+body.dark-mode header {
+    background: linear-gradient(185deg, #084fe9, #010f36);
+    color: #fff;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 
 .top-header {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-between; /* Centrar el contenido */
     align-items: center;
+    gap: 30px; /* Separar logo, nav y switch */
     padding: 10px 20px;
 }
 
@@ -45,33 +59,47 @@ header {
 
 .top-header nav {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .top-header nav a {
     text-decoration: none;
-    color: white; /* Link color */
-    font-size: 1rem;
+    color: white;
+    font-size: 1.5rem;
     font-weight: bold;
     transition: color 0.3s;
-    text-decoration: underline;
 }
 
 .top-header nav a:hover {
-    color: #ffecd3; /* Hover link color */
+    color: #ffffff;
+    text-decoration: underline 4px greenyellow;
 }
 
-.top-header nav button {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: white; /* Button color */
+#themeSwitch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     cursor: pointer;
-    transition: color 0.3s;
 }
 
-.top-header nav button:hover {
-    color: #ffecd3; /* Button hover color */
+.switch {
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+    background: #ccc;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.switch .circle {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 5%;
+    transition: all 0.3s;
 }
 
 /* Welcome Section */
@@ -82,7 +110,7 @@ header {
 }
 
 .welcome-section h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: #fff;
 }
@@ -123,43 +151,78 @@ header {
 }
 
 .searchForm input[type="submit"]:hover {
-    background-color: #ff7043;
+    background-color: rgb(116, 180, 19);
+    font-weight: bold;
 }
 
 /* Main Section */
 .movieList {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 30px 20px; /* Más espacio entre filas (30px) y columnas (20px) */
     max-width: 1200px;
     margin: 0 auto;
 }
 
+body.dark-mode main {
+    background: linear-gradient(185deg, #001d4f, #084fe9); /* Fondo combinado con el header */
+}
+
+body.light-mode main {
+    background: linear-gradient(185deg, #f7f7f7, #ffffff); /* Fondo claro */
+}
+
 .movieList li {
-    background: #fff; /* Light card background */
+    background: #fff; /* Fondo claro para light mode */
     border-radius: 10px;
-    padding: 10px;
     text-align: center;
-    transition: transform 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-bottom: 5px solid #ff5722; /* Solo borde inferior en light mode */
+}
+
+body.dark-mode .movieList li {
+    background: #1a1a1a; /* Fondo oscuro para dark mode */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+    border-bottom: 5px solid #084fe9; /* Solo borde inferior en dark mode */
 }
 
 .movieList li:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efecto dinámico */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Sombra destacada */
 }
 
 .movieList img {
     width: 100%;
     border-radius: 10px;
+    border: none; /* Sin bordes alrededor de la imagen */
 }
 
+.movieList h3,
 .movieList p {
-    color: #333; /* Text color in light mode */
+    color: #333; /* Texto oscuro para light mode */
+}
+
+body.dark-mode .movieList h3,
+body.dark-mode .movieList p {
+    color: #fff; /* Texto claro para dark mode */
+}
+
+h2 {
+    text-align: left;
+    margin-left: 20px; /* Espaciado desde el borde */
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+body.dark-mode h2 {
+    color: #ffffff;
 }
 
 /* Load More Button */
 #loadMore {
-    align-items: center;
+    display: block;
     margin: 20px auto;
     padding: 10px 20px;
     background-color: #ff5722;
@@ -168,48 +231,39 @@ header {
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
-    transition: background-color 0.3s;
+    transition:  ease-in 0.3s;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
+
+body.dark-mode #loadMore {
+background-color: #04034b;
+}
+
+body.dark-mode #loadMore:hover {
+    background-color: #29b805;
+    box-shadow: 2px 5px 5px black;
+    }
 
 #loadMore:hover {
-    background-color: #a7ff43;
-    box-shadow: 5px 5px 5px black;
-    transition: ease-in 0.3s;
-    color: black;
+    background-color: #29b805;
+    box-shadow: 2px 5px 5px black;
 }
 
-/* Footer */
+/* footer */
 footer {
     padding: 10px;
     text-align: center;
-    background-color: #ff5722;
+    background-color: #f73a00;
     color: #fff;
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #141e30; /* Dark background */
-    color: #fff; /* Light text */
-}
-
-body.dark-mode header {
-    background: linear-gradient(200deg, hsl(206, 100%, 8%), #00f7ff56); /* Dark header gradient */
-}
-
-body.dark-mode .movieList li {
-    background: #1c2833; /* Dark card background */
-    color: #ddd; /* Light text in cards */
-}
-
-body.dark-mode .movieList li p {
-    color: #ddd; /* Light text in dark mode */
-}
-
 body.dark-mode footer {
-    background-color: #1c2833; /* Dark footer background */
+    background-color: #001d4f; /* Azul oscuro */
+    color: #cccccc;
 }
 
-/* About Section */
 .about {
     display: flex;
     flex-wrap: wrap;
@@ -227,15 +281,26 @@ body.dark-mode footer {
 }
 
 .about-content h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #ff8a00;
+    text-align: center; /* Centrar el texto */
+    padding-left: 0; /* Eliminar padding innecesario */
+}
+
+body.dark-mode .about-content h2 {
     color: #ff8a00;
 }
 
+body.dark-mode .mainab {
+    background-color: #001d4f;
+}
+
 .about-content p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     color: #ddd;
+    text-align: center; /* Centrar el texto del párrafo */
 }
 
 .about-image img {
@@ -245,11 +310,120 @@ body.dark-mode footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Light Mode for About Section */
 body.light-mode .about-content p {
     color: #333;
 }
 
 body.light-mode .about-content h2 {
     color: #ff5722;
+}
+
+/* Media Query para dispositivos de ancho máximo 480px */
+@media (max-width: 480px) {
+    /* Ajustar el tamaño general de las tarjetas */
+    .movieList {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Mantener la visualización horizontal */
+        gap: 10px; /* Reducir el espacio entre tarjetas */
+    }
+
+    .movieList li {
+        padding: 5px; /* Reducir padding */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Suavizar sombra */
+    }
+
+    .movieList img {
+        width: 100%; /* Mantener el ancho completo de la tarjeta */
+        border-radius: 5px; /* Ajustar bordes */
+    }
+
+    .movieList h3 {
+        font-size: 0.9rem; /* Reducir tamaño del título */
+    }
+
+    .movieList p {
+        font-size: 0.8rem; /* Reducir tamaño del texto */
+    }
+
+    /* Ajustes para el Header */
+    .top-header {
+        flex-direction: column; /* Colocar elementos en columna */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .top-header img {
+        width: 60px; /* Reducir tamaño del logo */
+    }
+
+    .top-header nav {
+        gap: 10px; /* Reducir espacio entre enlaces */
+    }
+
+    .top-header nav a {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+    }
+
+    .switch {
+        width: 40px; /* Reducir tamaño del switch */
+        height: 20px;
+    }
+
+    .switch .circle {
+        width: 15px;
+        height: 15px;
+        top: 2.5px;
+    }
+
+    /* Ajustes para el Formulario de Búsqueda */
+    .searchForm {
+        flex-direction: column; /* Cambiar a columna */
+        gap: 10px;
+    }
+
+    .searchForm input[type="text"] {
+        width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+        font-size: 0.9rem; /* Reducir tamaño de texto */
+    }
+
+    .searchForm input[type="submit"] {
+        font-size: 0.9rem; /* Reducir tamaño del botón */
+        padding: 10px;
+    }
+
+    /* Ajustes para la sección Welcome */
+    .welcome-section h1 {
+        font-size: 1.8rem; /* Reducir tamaño del título */
+    }
+
+    .welcome-section p {
+        font-size: 1rem; /* Reducir tamaño del texto */
+    }
+
+    /* Ajustes para el botón "Load More" */
+    #loadMore {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+        padding: 8px 15px; /* Reducir padding */
+    }
+
+    .about {
+        flex-direction: column; /* Colocar contenido en columna */
+        gap: 15px;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem; /* Reducir tamaño del encabezado */
+        text-align: center; /* Asegurar que el texto esté centrado */
+        padding-left: 0; /* Eliminar padding */
+    }
+
+    .about-content p {
+        font-size: 1rem; /* Reducir tamaño del texto */
+        text-align: center; /* Centrar el texto */
+    }
+
+    .about-image img {
+        width: 90%; /* Ajustar ancho máximo de la imagen */
+        max-width: 300px;
+        border-radius: 10px;
+    }
 }
